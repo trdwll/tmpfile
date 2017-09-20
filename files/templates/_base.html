@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="{{ MY_HOST_DOMAIN }} - free 24h file hosting. Secure, anonymous, and reliable.">
+		<meta name="keywords" content="{{ MY_HOST_DOMAIN }}, temporary file hosting, temporary file, file hosting, ephemeral hosting, ephemeral file hosting, ephemeral, temporary, ephemeral file, free, anonymous, secure, private, reliable, no logs, nologs, anonymity, vpn, tor, socks, proxy">
+		
+		{% load static %}
+		<!-- Add the favicon to the page -->
+		<link rel="shortcut icon" href="{% static 'img/logo.png' %}" type="image/x-icon">
+
+		<title>{{ MY_HOST_DOMAIN }} : {% block title %}{% endblock %}</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static 'css/bulma.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+		{% block head %}{% endblock %}
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}"></a>
+					<div class="navbar-burger burger" data-target="navMenuExample">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+
+				<div id="navMenuExample" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="{% url 'home' %}">Home</a>
+						<a class="navbar-item" href="{% url 'pastes:paste-home' %}">Paste</a>
+						<a class="navbar-item" href="{% url 'faq' %}">FAQ</a>
+					</div>
+				</div>
+			</nav>
+			{% block content %}{% endblock %}
+		</div>
+
+		<footer>
+			<div class="has-text-centered">
+				<p><a class="imglnx" href="https://imglnx.com"></a></p>
+			</div>
+		</footer>
+	</body>
+</html>

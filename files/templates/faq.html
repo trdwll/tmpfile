@@ -1,0 +1,88 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}FAQ{% endblock %}
+
+
+{% block content %}
+<section class="section">
+	<div class="container">
+		<div class="column is-11 is-offset-1">
+		 <h1 class="title">Frequently Asked Questions</h1>
+		 	<div class="box" id="Contact">
+		 		<p>How can I contact you?</p>
+		 		<p>XMPP/Jabber and Email - <em><code>tmpfile@cock.li</code></em> GPG/PGP <em>(<code><a href="{% static 'downloads/pub.asc' %}">63D3 7F29 053B BEB6</a></code>)</em> and OTR FP <em>(<code>62EC78AE AA55C0B7 01A59131 93B93850 3A831B62</code>)</em></p>
+		 		<p>We chose <a href="https://cock.li">cock.li</a> for our support email so we don't have to host our own or use some 3rd party that spys on you. Use GPG/PGP when mailing us (if possible) to ensure your communication with us is <u>private</u>.</p>
+		 	</div>
+			<div class="box">
+				<p>How can I verify that you delete the files after 24 hours and don't store them elsewhere or send them to a 3 letter agency?</p>
+				<p>You can't, it's all about trust - you just have to take our word for it. We do <strong>recommend</strong> that you encrypt your files before uploading them so not even we could read the content. <em>Trust but verify.</em></p>
+				<p>We run this cron <code>find /path -type f -mmin +1440 -delete</code> every hour to make sure the files get removed at ~24 hours.</p>
+			</div>
+			<div class="box">
+				<p>Do you log anything?</p>
+				<p>We <strong>do not</strong> log any data. However, since you're uploading a file to our server - that's all that we store for 24 hours.</p>
+				<p>We <a href="#Open">open sourced</a> the code to help ease your mind. We only keep nginx logs for 10 minutes then write them to /dev/null so we can do some debugging if an issue arises or if we need to ban a bad visitor.</p>
+			</div>
+			<div class="box">
+				<p>Can I use a VPN/Tor/Proxy or Public Wifi while connected to a VPN and Tor while routing through a few other networks?</p>
+				<p>Yes, please do. - We <strong>do not</strong> block anything on our end.</p>
+			</div>
+			<div class="box">
+				<p>Can I upload a file larger than 1GB?</p>
+				<p>Nope, sorry. (maybe in the future?)</p>
+			</div>
+			<div class="box">
+				<p>Got an API?</p>
+				<p>No we do not. You can send a <code><strong>POST</strong></code> request to <code>https://{{ MY_HOST_DOMAIN }}</code> with the file param. It'll return a JSON Response.</p>
+				<p><code>curl -F "file=@mylocalfile.zip" https://{{ MY_HOST_DOMAIN }}</code></p>
+			</div>
+			<div class="box">
+				<p>Why should I use <a href="{% url 'home' %}">{{ MY_HOST_DOMAIN }}</a> over any other temporary file hosting services?</p>
+				<p>Use what you're comfortable with, we're not competing with any other services, but rather trying to strengthen the service idea as a whole. We think there should be more sites that store files temporarily.</p>
+			</div>
+			<div class="box">
+				<p>What file types/content are allowed?</p>
+				<p>Anything and everything is allowed.[1]</p>
+			</div>
+			<div class="box">
+				<p>Do you encrypt the files when they're uploaded?</p>
+				<p>No. Not even the OS/partition. With OpenVZ that's essentially impossible. We'll probably move to KVM or a dedi in the future.</p>
+			</div>
+			<div class="box">
+				<p>Do you have a Terms of Service or Privacy Policy?</p>
+				<p>You're looking at it. We feel it's not necessary to have either when we can essentially put the rules here.</p>
+				<p>tl;dr this service is provided as-is with <strong>no</strong> warranties of any kind.</p>
+			</div>
+			<div class="box" id="Open">
+				<p>Open source?</p>
+				<p><a href="{% static 'downloads/tmpfile-source.zip' %}">Yes.</a> - Licensed under MIT - Checksums: <a href="{% static 'downloads/tmpfile-source.zip.sha1' %}">SHA1</a>, <a href="{% static 'downloads/tmpfile-source.zip.sha256' %}">SHA256</a>, and <a href="{% static 'downloads/tmpfile-source.zip.sha512' %}">SHA512</a></p>
+			</div>
+			<div class="box">
+				<p>What was used to develop the site?</p>
+				<p>Sublime Text. Oh you mean programming languages etc. <a href="https://djangoproject.com">Python/Django</a>, <a href="https://github.com/jgthms/bulma">Bulma</a>, and some <a href="https://jquery.com/">jQuery</a>.</p>
+			</div>
+			<div class="box">
+				<p>Why did you go with the name {{ MY_HOST_DOMAIN }}?</p>
+				<p>The original name we decided on turned out to be "PREMIUM" and was being sold for ~$500. So back to the drawing board we went and came up with {{ MY_HOST_DOMAIN }}.</p>
+			</div>
+			<div class="box">
+				<p>Do you keep backups of the files?</p>
+				<p>No we do not backup visitor files or anything else on the system.</p>
+			</div>
+			<div class="box">
+				<p>Do you accept donations?</p>
+				<p><a href="https://www.youtube.com/watch?v=gvdf5n-zI14">Nope.avi</a>, thanks anyway.</p>
+			</div>
+			<div class="box">
+				<p>Wah! You're hosting in x country and that defeats the purpose of this service!</p>
+				<p>Well no matter what country or company we go to we're susceptible to <a href="https://en.wikipedia.org/wiki/Deep_packet_inspection">DPI</a>, raids, etc.</p>
+			</div>
+			<div class="box">
+				<p>Something else? Just <a href="#Contact">contact us</a>.</p>
+			</div>
+			[1]If the content is illegal and not encrypted we'll remove it (before the 24th hour), but if the content is encrypted we will <strong>not</strong> remove it (before the 24th hour) as we can't possibly know what the content is.
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Pastes{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pastes.app.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<!-- WELCOME -->
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">{{ MY_HOST_DOMAIN }} - Temporary Text Hosting</h1>
+			<h2 class="subtitle">Text that gets deleted in 2 hours from when they're uploaded. 20MB limit per paste and ∞ pastes per day.</h2>
+		</div>
+	</div>
+</section>
+
+<!-- UPLOADER -->
+<hr />
+<section class="section">
+	<div class="container">
+		<div class="column is-half is-offset-one-quarter">
+			<div class="has-text-centered">
+				<div id="errors"></div>
+				<form id="upload" method="POST" action="{% url 'pastes:paste-home' %}" enctype="multipart/form-data">
+					<div class="field">
+						<label class="label">Paste your text</label>
+						<div class="control">
+							<textarea class="textarea" id="paste" name="paste" placeholder="Paste your stuff here"></textarea>
+						</div>
+					</div>
+					<div class="field">
+						<div class="control">
+							<a class="button is-primary is-large" id="submit_paste">Submit</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

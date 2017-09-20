@@ -1,0 +1,47 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+<script type="text/javascript" src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.ui.widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.iframe-transport.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.fileupload.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/files.app.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<!-- WELCOME -->
+<section class="hero">
+	<div class="hero-body">
+		<div class="container">
+			<h1 class="title">{{ MY_HOST_DOMAIN }} - Temporary File Hosting</h1>
+			<h2 class="subtitle">Files that get deleted in 24hours from when they're uploaded. 1GB limit per file and ∞ uploads per day. <br />Large files will take a little while to upload so just be patient.</h2>
+		</div>
+	</div>
+</section>
+
+<!-- UPLOADER -->
+<hr />
+<section class="section">
+	<div class="container">
+		<div class="column is-half is-offset-one-quarter">
+			<div id="prog" class="has-text-centered"></div>
+			<progress id="pbar" class="progress is-primary" value="0" max="100"></progress>
+			<div class="has-text-centered">
+				Click the button to upload from your computer<br />
+				<form id="upload" method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+					<a class="button is-outlined is-large" id="upload_file" title="Browse for a file locally">
+						<span class="icon is-medium"><i class="fa fa-laptop" aria-hidden="true"></i></span>
+					</a>
+					<input id="selected_file" type="file" name="file" />
+				</form>
+				<div id="errors"></div>
+				<div id="kewlurldude"></div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
