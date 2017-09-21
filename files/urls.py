@@ -23,6 +23,11 @@ from . import views
 
 import pastes
 
+handler400 = 'files.views.handler400'
+handler403 = 'files.views.handler403'
+handler404 = 'files.views.handler404'
+handler500 = 'files.views.handler500'
+
 
 urlpatterns = [
 	url(r'^$', views.HomeView.as_view(), name='home'),

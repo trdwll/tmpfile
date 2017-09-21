@@ -11,6 +11,11 @@ You're also going to need to setup a cronjob to delete the files after 24 hours.
 
 
 # Changelog (kinda)
+Sept 21, 2017
+- update Bulma to 0.5.3
+- HTTP Error Pages
+- Commented some code
+
 Sept 3, 2017
 - CSP stuff
 - Pastes
