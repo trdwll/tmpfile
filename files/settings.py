@@ -119,15 +119,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+# STATIC_ROOT = '/var/www/static'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-
-# It's probably not the smartest to store user uploaded content or http accessible files
-# it could allow an attacker or just a user to view your source code
-# along with some vulnerabilities with executing binaries etc 
+# FILES_ROOT = '/path/to/file/location'
 FILES_ROOT = os.path.join(BASE_DIR, 'f')
 FILES_URL = '/file/'
 
+# PASTES_ROOT = '/path/to/pastes/location'
 PASTES_ROOT = os.path.join(BASE_DIR, 'p')
 PASTES_URL = '/paste/'

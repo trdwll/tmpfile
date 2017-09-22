@@ -31,12 +31,18 @@
 			<div id="prog" class="has-text-centered"></div>
 			<progress id="pbar" class="progress is-primary" value="0" max="100"></progress>
 			<div class="has-text-centered">
-				Click the button to upload from your computer<br />
 				<form id="upload" method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
-					<a class="button is-outlined is-large" id="upload_file" title="Browse for a file locally">
-						<span class="icon is-medium"><i class="fa fa-laptop" aria-hidden="true"></i></span>
-					</a>
 					<input id="selected_file" type="file" name="file" />
+					<div class="file is-boxed is-medium is-centered" id="upload_file" title="Browse for a file locally">
+						<label class="file-label">
+							<span class="file-cta">
+								<span class="file-icon">
+									<i class="fa fa-laptop"></i>
+								</span>
+								<span class="file-label">Choose a file…</span>
+							</span>
+						</label>
+					</div>
 				</form>
 				<div id="errors"></div>
 				<div id="kewlurldude"></div>
