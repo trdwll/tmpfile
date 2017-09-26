@@ -1,0 +1,1 @@
+- Shorten checksums to fit better on page
